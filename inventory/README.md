@@ -1,4 +1,4 @@
-## Basic Inventory System :roket::rocket::rocket:
+## Basic Inventory System :rocket::rocket::rocket:
 
 This respository contains the full source code of basic inventory system using Polymorphism and made by Michael Ponce, the creator of the code.
 This source code might help you in your project. And please treat it as a reference, do not copy paste it. The
