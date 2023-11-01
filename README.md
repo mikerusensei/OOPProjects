@@ -5,4 +5,4 @@ This repository is a compilation of all activities made during Object Oriented P
 
 # Updates
 
-No update posted.
+- Added graphcal user interface in banking system using TKinter.
