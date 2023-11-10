@@ -1,7 +1,7 @@
 import tkinter as tk
 from datetime import datetime
 from functions import *
-
+from widgetgenerator import *
 
 current_date = datetime.now()
 
@@ -21,35 +21,50 @@ class GUIBank(tk.Tk):
             widget.config(font=("Calibri", 16))
 
     def __add_label(self):
-        date_label = tk.Label(self, text=f"{current_date:%A, %B %d, %Y}")
-        date_label.pack(anchor='w')
+        LabelGeneratorPack(self)\
+            .set_text(f"{current_date:%A, %B %d, %Y}")\
+            .set_anchor("w")\
+            .build()
 
-        time_label = tk.Label(self, text=current_time)
-        time_label.pack(anchor='w')
+        time_label = LabelGeneratorPack(self)\
+            .set_text(current_time)\
+            .set_anchor("w")\
+            .build()
         current_time(time_label)
 
-        greet_label = tk.Label(self, text=f"\n\n{greet()}")
-        greet_label.pack(anchor='w')
-
-        welcome_label = tk.Label(self, text="Welcome to FooBar's Bank\n\n\n")
-        welcome_label.pack(anchor='w')
-
-        option_label = tk.Label(self, text='\n\n\n[OPTIONS]')
-        option_label.pack(anchor='w')
+        LabelGeneratorPack(self)\
+            .set_text(f"\n\n{greet()}")\
+            .set_anchor("w")\
+            .build()
         
+        LabelGeneratorPack(self)\
+            .set_text("Welcome to FooBar's Bank\n\n\n")\
+            .set_anchor("w")\
+            .build()
+        
+        LabelGeneratorPack(self)\
+            .set_text("\n\n\n[OPTIONS]")\
+            .set_anchor("w")\
+            .build()
 
     def __add_button(self):
-        
-        create_button = tk.Button(self, text="Create an account",
-                                  )
-        create_button.pack(anchor='w')
+        ButtonGeneratorPack(self)\
+            .set_text("Create Account")\
+            .set_command(None)\
+            .set_anchor("w")\
+            .build()
 
-        login_button = tk.Button(self, text='Log In')
-        login_button.pack(anchor='w')
+        ButtonGeneratorPack(self)\
+            .set_text("Log In")\
+            .set_command(None)\
+            .set_anchor("w")\
+            .build()
 
-        exit_button = tk.Button(self, text='Exit',
-                                )
-        exit_button.pack(anchor='w')
+        ButtonGeneratorPack(self)\
+            .set_text("Exit")\
+            .set_command(self.destroy)\
+            .set_anchor("w")\
+            .build()
         
     def run(self):
         self.mainloop()
